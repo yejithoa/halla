@@ -1,0 +1,181 @@
+@charset "utf-8";
+* {
+    margin: 0;
+    padding: 0;
+} 
+ul {
+    list-style: none;
+} 
+.hidden {
+    position: absolute; 
+    left: -9999px;
+}
+@font-face {
+    font-family: "Nanum";
+    font-weight: 400;
+    src: url("font/NanumGothic.ttf")format("truetype");
+}
+@font-face {
+    font-family: "NanumBold";
+    font-weight: 600;
+    src: url("font/NanumGothicBold.ttf")format("truetype");
+}
+a:link {
+    color: #4f4f4f;
+    text-decoration: none;
+}
+a:visited {
+    color: #8a8e91;
+    text-decoration: none;
+}
+a:hover {
+    color: #e94d4d;
+    text-decoration: none;
+}
+body {
+    color: darkblue;
+    background-color: #fff;
+    font-size: 26px;
+    line-height: 1.6; /*줄간격 1은 간격없음.*/
+    font-family: "Nanum"; 
+}
+body .infoLink {
+    font-size: 17px;
+}
+#visual, #contentsArea, #footer{
+    overflow: visible;
+}
+#header, #visual, #contentsArea, #footer {/*영역 안의 영역 주기*/
+    width: 1200px;
+    height: auto;
+    margin: 0 auto;
+    box-sizing: border-box;
+    position: relative; /*relative-다른 요소들은 내가 움직인요소의 이동한 위치에 따라 재배치되지 않습니다. 대신, 그 주변의 공간을 유지하면서 움직인게 새로운 위치에 배치됩니다. */
+    background-color: #fff;
+    padding: 0 30px;
+}
+#header {
+    padding-bottom: 80px;
+}
+#header .logo {
+    position: absolute;
+    top: 40px;
+    left: 0;
+}
+#header .infoLink { 
+    text-align: right;
+}
+#header .infoLink>li { 
+    display: inline-block; /*설정안할시 디스플레이 기본이 블록임*/
+    padding: 8px 0 7px 3px;
+}
+#header .infoLink a::before {
+    content: "|";
+    padding-right: 8px;
+}
+#header .infoLink>li:first-child a::before {
+    content: "";
+}
+#header .mainMenu li, #header .mainMenu a {
+    display: inline-block; 
+}
+#header .mainMenu {
+    height: 70px;
+    padding-left: 240px;
+}
+#header .mainMenu>li>a:hover {
+    position: relative;
+    border-bottom: 3px solid #e94d4d;
+    padding-bottom: 5px;
+}    
+#header .mainMenu>li {
+    position: relative; /*옆으로 밀려나지않게*/
+}
+#header .mainMenu>li>a { 
+    font-family: "NanumEX";
+    font-size: 1.3em; 
+    padding: 15px 20px 14px;
+    color: #1e4285;
+    letter-spacing: 4px; /*글자간격*/
+    text-shadow: 1px 0 rgba(0,0,0,0.3), -1px 0 rgba(0,0,0,0.3), 0 1px rgba(0,0,0,0.3), 0 -1px rgba(0,0,0,0.3);
+    /*가로로, 가로로, 세로로, 세로로*/
+}
+#header .mainMenu>li>a:hover {
+    color: #5175b8;
+}
+#header .mainMenu>li>a:hover::after {
+    content: "";
+    display: block;
+    background-color: #fff;
+    height: 2px;
+    width: 100%;
+    position: relative; /*현재 내 위치에서 움직임/ absol-left top이 부모위치에서 움직임*/
+    top: 12px;
+}
+#header .mainMenu ul a {
+    padding: 8px 0 7px 15px;
+}
+#header .mainMenu ul { 
+    display: none;
+    position: absolute; 
+    white-space: nowrap; /*줄바꿈 없이 한 줄로 유지*/
+    z-index: 10;
+}
+#header .mainMenu>li:hover ul {
+    display: block; /*새로운 줄에서 시작*/
+}
+/*비주얼*/
+@keyframes fadeIn {
+    from {
+        opacity: 0.3;
+    }
+    to {
+        opacity: 0.9;
+    }
+}
+#visual {
+    height: 700px;
+    position: relative;
+    background-image: url(clouds-3725173_1280.jpg);
+    background-repeat: no-repeat;
+    animation: fadeIn 2s ease;
+}
+
+#visual>p {
+    position: absolute;
+    left: -9999px;
+}
+#contentsArea {
+    background-color: #fff;
+    
+}
+#footer {
+    height: 170px;
+    padding: 15px 0;
+    position: relative;
+    color: #fff;
+    background-color: #909597;
+    border-radius: 5px;
+    padding-left: 50px;
+    margin-top: 10px;
+}
+
+.guide li {
+    display: inline-block;
+    margin-right: 50px;
+}
+.guide a {
+    color: #000;
+    font-size: 0.7em;
+    padding-top: 0.1;
+    display: inline-block;
+}    
+address {
+    padding-top: 0.2;
+    font-style: normal;
+    font-size: 0.9em;
+}
+.copyright {
+    padding-top: 0.2;
+    font-size: 0.5em;
+}
